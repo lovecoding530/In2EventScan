@@ -7,15 +7,40 @@
 //
 
 import UIKit
+import SideMenu
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let reachabilityManager = NetworkReachabilityManager(host: "www.apple.com")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        SideMenuManager.default.menuLeftNavigationController =
+            STORYBOARD.instantiateViewController(withIdentifier: "SideMenu") as? UISideMenuNavigationController
+        SideMenuManager.default.menuAnimationBackgroundColor = BACKGROUND_COLOR_1
+
+        reachabilityManager?.listener = {status in
+            switch status {
+            case .notReachable:
+                print("connection lost")
+            case .reachable(.ethernetOrWiFi):
+                print("The network is reachable over the WiFi connection")
+                Sync().syncCachedBarcodes()
+            case .reachable(.wwan):
+                print("The network is reachable over the WWAN connection")
+                Sync().syncCachedBarcodes()
+            case .unknown:
+                print("It is unknown whether the network is reachable")
+            }
+        }
+        
+        reachabilityManager?.startListening()
+        
         return true
     }
 
