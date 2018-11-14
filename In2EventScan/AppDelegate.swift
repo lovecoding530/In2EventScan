@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let reachabilityManager = NetworkReachabilityManager(host: "www.apple.com")
 
+    var connectionLostView: UIView! = nil
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
@@ -24,26 +26,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             STORYBOARD.instantiateViewController(withIdentifier: "SideMenu") as? UISideMenuNavigationController
         SideMenuManager.default.menuAnimationBackgroundColor = BACKGROUND_COLOR_1
 
+        setupConnectionLostView()
         reachabilityManager?.listener = {status in
             switch status {
             case .notReachable:
                 print("connection lost")
+                self.showConnectionLostView()
             case .reachable(.ethernetOrWiFi):
                 print("The network is reachable over the WiFi connection")
                 Sync().syncCachedBarcodes()
+                self.hideConnectionLostView()
             case .reachable(.wwan):
                 print("The network is reachable over the WWAN connection")
                 Sync().syncCachedBarcodes()
+                self.hideConnectionLostView()
             case .unknown:
                 print("It is unknown whether the network is reachable")
+                self.showConnectionLostView()
             }
         }
         
         reachabilityManager?.startListening()
         
+        if(AppUserDefaults.isLoggedin){
+            let scanVC = STORYBOARD.instantiateViewController(withIdentifier: "ScanVC")
+            self.window?.rootViewController = UINavigationController(rootViewController: scanVC)
+        }
         return true
     }
-
+    
+    func setupConnectionLostView() {
+        var top: CGFloat = 20.0
+        if #available(iOS 11.0, *) {
+            top = self.window!.safeAreaInsets.top
+        }
+        let height = top + 44
+        let rect = CGRect(x: 0, y: 0, width: self.window!.frame.width, height: height)
+        self.connectionLostView = UIView(frame: rect)
+        self.connectionLostView.backgroundColor = .red
+        let lostLabel = UILabel(frame: CGRect(x: 60, y: top + 6, width: 320, height: 24))
+        lostLabel.text = "Connection lost...".localized()
+        lostLabel.textColor = .white
+        lostLabel.font = UIFont(name: "Helvetica", size: 24)
+        self.connectionLostView.addSubview(lostLabel)
+    }
+    
+    func showConnectionLostView() {
+        self.window!.addSubview(self.connectionLostView)
+    }
+    
+    func hideConnectionLostView() {
+        self.connectionLostView.removeFromSuperview()
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

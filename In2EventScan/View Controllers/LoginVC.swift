@@ -43,8 +43,12 @@ extension LoginVC: CodeScanDelegate {
         hud.label.text = "Please Wait"
         
         //sample log in code : 42c3bf79f97a9862fc414e1ed5e43132e21ba6c3b24d71740f23c945328ea884
+        
+        let lang = Locale.current.languageCode!
+
         let headers = [
-            "X-ACCESS-TOKEN": content
+            "X-ACCESS-TOKEN": content,
+            "lang": lang
         ]
         
         let parameters = [

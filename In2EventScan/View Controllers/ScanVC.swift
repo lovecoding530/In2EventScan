@@ -41,8 +41,11 @@ extension ScanVC: CodeScanDelegate {
         
         //sample log in code : 42c3bf79f97a9862fc414e1ed5e43132e21ba6c3b24d71740f23c945328ea884
 
+        let lang = Locale.current.languageCode!
+
         let headers = [
-            "X-ACCESS-TOKEN": AppUserDefaults.accessToken
+            "X-ACCESS-TOKEN": AppUserDefaults.accessToken,
+            "lang": lang
         ]
         
         let parameters = [
@@ -51,7 +54,7 @@ extension ScanVC: CodeScanDelegate {
         
         if Connectivity.isConnectedToInternet {
             let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-            hud.label.text = "Please Wait"
+            hud.label.text = "Please Wait".localized()
             
             request(Contents.Api.barcodes,
                     method: .post,
@@ -77,25 +80,28 @@ extension ScanVC: CodeScanDelegate {
                     case .failure(let error):
                         print("Error:", error.localizedDescription)
                         
-                        self.gotoResultVC(isSeccess: false, message: "An error happens", barcodeJson: nil)
+                        self.gotoResultVC(isSeccess: false, message: "An error happens".localized(), barcodeJson: nil)
                     }
             }
-        }else{
+        }
+        /*
+        else{
             if Contents.scannedBarcodes.contains(content) {
                 gotoResultVC(isSeccess: false, message: "Barcode already scanned", barcodeJson: nil)
             }else{
                 let indexOfCache = Contents.cachedBarcodes.index(where: {$0[Contents.Barcode.barcode].stringValue == content})
                 if indexOfCache != nil {
-                    
+         
                     let json = Contents.cachedBarcodes.remove(at: indexOfCache!)
                     AppUserDefaults.queuedBarcodes.append(content)
-                    
+         
                     gotoResultVC(isSeccess: true, message: "Successfully scanned", barcodeJson: json)
                 }else{
                     gotoResultVC(isSeccess: false, message: "Barcode not found", barcodeJson: nil)
                 }
             }
         }
+        */
     }
     
     func gotoResultVC(isSeccess: Bool, message: String, barcodeJson: JSON?) {

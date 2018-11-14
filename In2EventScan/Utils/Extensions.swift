@@ -30,6 +30,10 @@ extension String {
         attributedStr.addAttribute(NSAttributedStringKey.baselineOffset, value: -3, range: NSRange.init(location: at, length: 1))
         return attributedStr
     }
+    
+    func localized() -> String {
+        return NSLocalizedString(self, comment: "")
+    }
 }
 
 extension UIImage {

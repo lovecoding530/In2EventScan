@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  In2EventScan
+
+  Created by Admin on 11/14/18.
+  Copyright © 2018 Admin. All rights reserved.
+*/
+"Connection lost..." = "Connection lost... - Dutch";
+"Please Wait" = "Please Wait - Dutch";
+"An error happens" = "An error happens - Dutch";
+"Successfully scanned" = "Successfully scanned - Dutch";
+"Barcode not found" = "Barcode not found - Dutch";
+"Barcode already scanned" = "Barcode already scanned - Dutch";

@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Make sure the entire QR Code\nfits inside the boxed area"; ObjectID = "4G2-YG-L3M"; */
+"4G2-YG-L3M.text" = "Make sure the entire QR Code\nfits inside the boxed area - German";
+
+/* Class = "UIButton"; normalTitle = "Try Again"; ObjectID = "7SM-rL-eVX"; */
+"7SM-rL-eVX.normalTitle" = "Try Again - German";
+
+/* Class = "UILabel"; text = "Login Failed"; ObjectID = "7zP-3m-1vW"; */
+"7zP-3m-1vW.text" = "Login Failed - German";
+
+/* Class = "UILabel"; text = "The Flying Dutch 2018"; ObjectID = "LT9-db-RKO"; */
+"LT9-db-RKO.text" = "The Flying Dutch 2018 - German";
+
+/* Class = "UIButton"; normalTitle = "Continue Scanning"; ObjectID = "PNF-Cp-T8R"; */
+"PNF-Cp-T8R.normalTitle" = "Continue Scanning - German";
+
+/* Class = "UIButton"; normalTitle = "Scan Login Code"; ObjectID = "X5W-Dg-J7q"; */
+"X5W-Dg-J7q.normalTitle" = "Scan Login Code - German";
+
+/* Class = "UILabel"; text = "Make sure the entire QR Code\nfits inside the boxed area"; ObjectID = "YJe-ot-U6q"; */
+"YJe-ot-U6q.text" = "Make sure the entire QR Code\nfits inside the boxed area - German";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "YNf-lL-8ca"; */
+"YNf-lL-8ca.title" = "Root View Controller - German";
+
+/* Class = "UILabel"; text = "Log out"; ObjectID = "Zer-LK-6UH"; */
+"Zer-LK-6UH.text" = "Log out - German";
+
+/* Class = "UILabel"; text = "Connection lost..."; ObjectID = "a5i-Gb-PsB"; */
+"a5i-Gb-PsB.text" = "Connection lost... - German";
+
+/* Class = "UIButton"; normalTitle = "Start Scanning"; ObjectID = "cce-M0-4VA"; */
+"cce-M0-4VA.normalTitle" = "Start Scanning - German";
+
+/* Class = "UILabel"; text = "Scan Code"; ObjectID = "eMq-2m-fHV"; */
+"eMq-2m-fHV.text" = "Scan Code - German";
+
+/* Class = "UILabel"; text = "To login scan the QR code provided by your provider"; ObjectID = "i8p-c1-JvR"; */
+"i8p-c1-JvR.text" = "To login scan the QR code provided by your provider - German";
+
+/* Class = "UILabel"; text = "Rotterdam  ·  14 juni 2018"; ObjectID = "wGX-GO-Yta"; */
+"wGX-GO-Yta.text" = "Rotterdam  ·  14 juni 2018 - German";
