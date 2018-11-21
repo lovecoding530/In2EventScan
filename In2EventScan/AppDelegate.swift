@@ -64,11 +64,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rect = CGRect(x: 0, y: 0, width: self.window!.frame.width, height: height)
         self.connectionLostView = UIView(frame: rect)
         self.connectionLostView.backgroundColor = .red
+
         let lostLabel = UILabel(frame: CGRect(x: 60, y: top + 6, width: 320, height: 24))
         lostLabel.text = "Connection lost...".localized()
         lostLabel.textColor = .white
         lostLabel.font = UIFont(name: "Helvetica", size: 24)
         self.connectionLostView.addSubview(lostLabel)
+        
+        let warningImageView = UIImageView(frame: CGRect(x: 12, y: top + 2, width: 32, height: 32))
+        warningImageView.image = #imageLiteral(resourceName: "warning")
+        self.connectionLostView.addSubview(warningImageView)
     }
     
     func showConnectionLostView() {

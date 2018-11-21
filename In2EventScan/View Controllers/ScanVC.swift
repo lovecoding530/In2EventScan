@@ -45,7 +45,7 @@ extension ScanVC: CodeScanDelegate {
 
         let headers = [
             "X-ACCESS-TOKEN": AppUserDefaults.accessToken,
-            "lang": lang
+            "LANG": lang
         ]
         
         let parameters = [
@@ -71,16 +71,16 @@ extension ScanVC: CodeScanDelegate {
                         let json = JSON(value)
                         print("JSON: \(json)")
                         
-                        let isSuccess = json[Contents.Barcode.success].boolValue
+                        let response = json[Contents.Barcode.response].stringValue
                         let message = json[Contents.Barcode.message].stringValue
 
                         Contents.scannedBarcodes.append(content)
-                        self.gotoResultVC(isSeccess: isSuccess, message: message, barcodeJson: json)
+                        self.gotoResultVC(response: response, message: message, barcodeJson: json)
                         
                     case .failure(let error):
                         print("Error:", error.localizedDescription)
                         
-                        self.gotoResultVC(isSeccess: false, message: "An error happens".localized(), barcodeJson: nil)
+                        self.gotoResultVC(response: "ERROR", message: "An error happens".localized(), barcodeJson: nil)
                     }
             }
         }
@@ -104,9 +104,9 @@ extension ScanVC: CodeScanDelegate {
         */
     }
     
-    func gotoResultVC(isSeccess: Bool, message: String, barcodeJson: JSON?) {
+    func gotoResultVC(response: String, message: String, barcodeJson: JSON?) {
         let resultVC = STORYBOARD.instantiateViewController(withIdentifier: "ScanResultVC") as! ScanResultVC
-        resultVC.isSuccess = isSeccess
+        resultVC.response = response
         resultVC.message = message
         resultVC.barcode = barcodeJson
         self.navigationController?.show(resultVC, sender: self)

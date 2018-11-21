@@ -12,7 +12,7 @@ import SwiftyJSON
 class ScanResultVC: UIViewController {
 
     var barcode: JSON?
-    var isSuccess: Bool!
+    var response: String!
     var message: String!
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var resultImageView: UIImageView!
@@ -22,13 +22,22 @@ class ScanResultVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if isSuccess {
+
+        switch self.response {
+        case "SUCCESS":
             bgImageView.image = #imageLiteral(resourceName: "bg_success")
             resultImageView.image = #imageLiteral(resourceName: "success")
-        }else{
+            break
+        case "WARNING":
+            bgImageView.image = #imageLiteral(resourceName: "bg_warning")
+            resultImageView.image = #imageLiteral(resourceName: "warning")
+            break
+        case "ERROR":
             bgImageView.image = #imageLiteral(resourceName: "bg_failed")
             resultImageView.image = #imageLiteral(resourceName: "failed")
+            break
+        default:
+            break
         }
 
         messageLabel.text = message

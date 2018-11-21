@@ -23,13 +23,14 @@ let RED_COLOR = UIColor.init(rgb: 0xD0021B)
 let LIGHT_GRAY = UIColor.init(rgb: 0xF1F2F6)
 let LIGHT_GREEN = UIColor.green
 let GREEN = UIColor.init(rgb: 0x2EB872)
+let YELLOW = UIColor.init(rgb: 0xFCB000)
 
 //APP
 
 struct Contents {
     struct Api {
-//        static let root = "http://worker.hetsysteem.com/api/1" //demo server
-        static let root = "https://api.in2event.com/api/1" //production server
+        static let root = "http://workers.hetsysteem.com/api/1" //demo server
+//        static let root = "https://api.in2event.com/api/1" //production server
         static let authorize = "\(root)/authorize"
         static let barcodes = "\(root)/barcodes"
     }
@@ -42,6 +43,7 @@ struct Contents {
         static let scanStatus = "scan_status"
         static let product = "product"
         static let success = "success"
+        static let response = "response"
     }
     
     static var cachedBarcodes = [JSON]()

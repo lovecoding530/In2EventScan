@@ -48,7 +48,7 @@ extension LoginVC: CodeScanDelegate {
 
         let headers = [
             "X-ACCESS-TOKEN": content,
-            "lang": lang
+            "LANG": lang
         ]
         
         let parameters = [
