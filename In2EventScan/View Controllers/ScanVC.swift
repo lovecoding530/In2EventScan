@@ -80,7 +80,7 @@ extension ScanVC: CodeScanDelegate {
                     case .failure(let error):
                         print("Error:", error.localizedDescription)
                         
-                        self.gotoResultVC(response: "ERROR", message: "An error happens".localized(), barcodeJson: nil)
+                        self.gotoResultVC(response: "ERROR", message: "An Error Occurred".localized(), barcodeJson: nil)
                     }
             }
         }
@@ -95,7 +95,7 @@ extension ScanVC: CodeScanDelegate {
                     let json = Contents.cachedBarcodes.remove(at: indexOfCache!)
                     AppUserDefaults.queuedBarcodes.append(content)
          
-                    gotoResultVC(isSeccess: true, message: "Successfully scanned", barcodeJson: json)
+                    gotoResultVC(isSeccess: true, message: "Scan Successful", barcodeJson: json)
                 }else{
                     gotoResultVC(isSeccess: false, message: "Barcode not found", barcodeJson: nil)
                 }

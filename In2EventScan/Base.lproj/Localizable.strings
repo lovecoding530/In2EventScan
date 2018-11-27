@@ -7,7 +7,7 @@
 */
 "Connection lost..." = "Connection lost...";
 "Please Wait" = "Please Wait";
-"An error happens" = "An error happens";
-"Successfully scanned" = "Successfully scanned";
+"An Error Occurred" = "An Error Occurred";
+"Scan Successful" = "Scan Successful";
 "Barcode not found" = "Barcode not found";
 "Barcode already scanned" = "Barcode already scanned";
