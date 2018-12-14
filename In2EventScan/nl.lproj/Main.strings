@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "Make sure the entire QR Code\nfits inside the boxed area"; ObjectID = "4G2-YG-L3M"; */
-"4G2-YG-L3M.text" = "Make sure the entire QR Code\nfits inside the boxed area";
+"4G2-YG-L3M.text" = "Zorg ervoor dat de QR Code binnen het kader past";
 
 /* Class = "UIButton"; normalTitle = "Try Again"; ObjectID = "7SM-rL-eVX"; */
 "7SM-rL-eVX.normalTitle" = "Probeer opnieuw";
@@ -18,7 +18,7 @@
 "X5W-Dg-J7q.normalTitle" = "Scan login code";
 
 /* Class = "UILabel"; text = "Make sure the entire QR Code\nfits inside the boxed area"; ObjectID = "YJe-ot-U6q"; */
-"YJe-ot-U6q.text" = "Make sure the entire QR Code\nfits inside the boxed area";
+"YJe-ot-U6q.text" = "Zorg ervoor dat de QR Code binnen het kader past";
 
 /* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "YNf-lL-8ca"; */
 "YNf-lL-8ca.title" = "Root View Controller";

@@ -29,8 +29,8 @@ let YELLOW = UIColor.init(rgb: 0xFCB000)
 
 struct Contents {
     struct Api {
-        static let root = "http://workers.hetsysteem.com/api/1" //demo server
-//        static let root = "https://api.in2event.com/api/1" //production server
+//        static let root = "http://workers.hetsysteem.com/api/1" //demo server
+        static let root = "https://api.in2event.com/api/1" //production server
         static let authorize = "\(root)/authorize"
         static let barcodes = "\(root)/barcodes"
     }
